@@ -1,41 +1,42 @@
 import { StyleSheet, Text, View, ScrollView, Image } from 'react-native'
-import React from 'react' 
-import Item from './Item'
-import ItemSection from './ItemSection'
+import React from 'react'  
+import ShopItem from './ShopItem'
+import ShopItemSection from './ShopItemSection'
 
 const ShopDetails = (props) => {
     const { headContainer, headerText, imageStyle, scrollViewContainer, descriptionText, brandText, priceText, discountText, stockText } = styles;
 
     return (  
-        <Item>
-            <ItemSection>
-                <View style={headContainer}>
+        <ShopItem>
+            <ShopItemSection>
+            <View style={headContainer}>
                     <Text style={headerText}>{props.product.title}</Text>
                 </View>
-            </ItemSection>
-            <ItemSection>
+            </ShopItemSection>
+            <ShopItemSection>
                 <ScrollView horizontal={true} style={scrollViewContainer}>
                     {props.product.images.map((image, index) => (
                         <Image key={index} style={imageStyle} source={{ uri: image }} />
                     ))}
                 </ScrollView>
-            </ItemSection>
-            <ItemSection>
+            </ShopItemSection>
+            <ShopItemSection>
                 <Text style={brandText}>Brand: {props.product.brand}</Text>
-            </ItemSection>
-            <ItemSection>
+            </ShopItemSection>
+            <ShopItemSection>
                 <Text style={descriptionText}>{props.product.description}</Text> 
-            </ItemSection>
-            <ItemSection>
+            </ShopItemSection>
+            <ShopItemSection>
                 <Text style={priceText}>Price: ${props.product.price}</Text>
-            </ItemSection>
-            <ItemSection>
+            </ShopItemSection>
+            <ShopItemSection>
                 <Text style={discountText}>Discount: {props.product.discountPercentage}%</Text>
-            </ItemSection>
-            <ItemSection>
+            </ShopItemSection>
+            <ShopItemSection>
                 <Text style={stockText}>In Stock: {props.product.stock} available</Text>
-            </ItemSection>
-        </Item>
+            </ShopItemSection>
+        </ShopItem>
+             
     )
 }
 
