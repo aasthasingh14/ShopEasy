@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View, ScrollView, Image } from 'react-native'
+import { StyleSheet, Text, View, ScrollView, Image, Linking } from 'react-native'
 import React from 'react'  
 import ShopItem from './ShopItem'
-import ShopItemSection from './ShopItemSection'
+import ShopItemSection from './ShopItemSection' 
+import CustomButton from './CustomButton'
 
 const ShopDetails = (props) => {
     const { headContainer, headerText, imageStyle, scrollViewContainer, descriptionText, brandText, priceText, discountText, stockText } = styles;
@@ -34,6 +35,12 @@ const ShopDetails = (props) => {
             </ShopItemSection>
             <ShopItemSection>
                 <Text style={stockText}>In Stock: {props.product.stock} available</Text>
+            </ShopItemSection> 
+            <ShopItemSection>
+                <CustomButton
+                    title="Click Me"
+                    onPress={() => Linking.openURL(props.product.thumbnail)}
+                /> 
             </ShopItemSection>
         </ShopItem>
              
@@ -68,22 +75,27 @@ const styles = StyleSheet.create({
     descriptionText: {
         fontSize: 16,
         marginBottom: 10,
+        color : 'black'
     },
     brandText: {
         fontSize: 16,
         marginBottom: 5,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        color : 'black'
     },
     priceText: {
         fontSize: 16,
         marginBottom: 5,
+        color : 'black'
     },
     discountText: {
         fontSize: 16,
         marginBottom: 5,
+        color : 'black'
     },
     stockText: {
         fontSize: 16,
         marginBottom: 5,
+        color : 'black'
     }
 });

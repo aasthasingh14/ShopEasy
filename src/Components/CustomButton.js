@@ -1,20 +1,20 @@
 import React, { Component } from "react";
-import { Text,Button } from "react-native";
+import { TouchableOpacity, Text, StyleSheet } from "react-native";
 
-class Button extends Component {
+class CustomButton extends Component {
     render() {
         const { onPress } = this.props;
         return ( 
-            <Button onPress={onPress} style={styles.button}>
+            <TouchableOpacity onPress={onPress} style={styles.button}>
                 <Text style={styles.text}>Click Here</Text>
-            </Button>
+            </TouchableOpacity>
         );
     }
 }
 
-const styles = {
+const styles = StyleSheet.create({
     button: {
-        backgroundColor: "#007aff",
+        backgroundColor: 'black',
         borderRadius: 5,
         paddingVertical: 10,
         paddingHorizontal: 15,
@@ -25,6 +25,6 @@ const styles = {
         fontSize: 16,
         fontWeight: "600",
     },
-};
+});
 
-export default Button;
+export default CustomButton;
